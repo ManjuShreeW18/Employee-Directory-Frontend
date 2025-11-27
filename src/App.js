@@ -70,7 +70,7 @@ function App() {
         <Route 
           path="/employee-summary" 
           element={
-            <ProtectedRoute roles={["HR", "Manager"]}>
+            <ProtectedRoute roles={["HR"]}>
               <EmployeeSummary />
             </ProtectedRoute>
           } 
@@ -79,7 +79,7 @@ function App() {
         <Route 
           path="/employee-status" 
           element={
-            <ProtectedRoute roles={["Employee"]}>
+            <ProtectedRoute roles={["Employee","Manager"]}>
               <EmployeeStatus />
             </ProtectedRoute>
           } 
@@ -88,7 +88,7 @@ function App() {
         <Route 
           path="/search-department" 
           element={
-            <ProtectedRoute roles={["Employee"]}>
+            <ProtectedRoute roles={["Employee","Manager"]}>
               <DepartmentFilter />
             </ProtectedRoute>
           } 
