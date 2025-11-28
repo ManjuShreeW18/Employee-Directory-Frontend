@@ -3,7 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
-const Navbar = ({ title }) => {
+const Navbar = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { user, logout } = useContext(AuthContext);
@@ -21,8 +21,11 @@ const Navbar = ({ title }) => {
 
   return (
     <div className='navbar'>
-      <img src="./WinWireLogo.png" alt="winwirelogo" className='winlogo'/>
-      <h2>{title}</h2>
+      <h1 style={{ fontFamily: 'Raleway, sans-serif' ,fontSize: '38px', fontStyle: 'italic'}}>
+        <span style={{ color: '#124B84' }}>Win</span>
+        <span style={{ color: '#C74627' }}>Atlas</span>
+      </h1>
+
       <div>
         {isLoggedIn && (
           <>

@@ -17,7 +17,7 @@ import DepartmentFilter from "./pages/DepartmentFilter";
 function App() {
   return (
     <AuthProvider>
-      <Navbar title="|&nbsp; Employee Directory App" />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
@@ -79,7 +79,7 @@ function App() {
         <Route 
           path="/employee-status" 
           element={
-            <ProtectedRoute roles={["Employee","Manager"]}>
+            <ProtectedRoute roles={["HR","Employee","Manager"]}>
               <EmployeeStatus />
             </ProtectedRoute>
           } 
