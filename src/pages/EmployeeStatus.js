@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/api';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // import styles
 
 const EmployeeStatus = () => {
   const [employee, setEmployee] = useState({ fullName: '', email: '', status: '' });
