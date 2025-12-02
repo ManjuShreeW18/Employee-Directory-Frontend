@@ -44,7 +44,7 @@ const Navbar = () => {
         {isLoggedIn ? (
           <button className='logout' onClick={handleLogout}>Logout</button>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login"></Link>
         )}
       </div>
     </div>
