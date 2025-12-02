@@ -16,12 +16,17 @@ import DepartmentFilter from "./pages/DepartmentFilter";
 
 function App() {
   return (
-    <AuthProvider>
-      <Navbar/>
+    <AuthProvider> {/*To Provide logged-in user info to all components */}
+      <Navbar /> {/* Top navigation bar */}
+
       <Routes>
+        {/* Redirect root to login */}
         <Route path="/" element={<Navigate to="/login" />} />
+
+        {/* Public login route */}
         <Route path="/login" element={<Login />} />
 
+        {/* Protected dashboard route */}
         <Route 
           path="/dashboard" 
           element={
@@ -31,6 +36,7 @@ function App() {
           } 
         />
 
+        {/* Employee list, accessible by Manager, HR, Employee */}
         <Route 
           path="/dashboard/employees" 
           element={
@@ -40,6 +46,7 @@ function App() {
           } 
         />
 
+        {/* Add employee, HR only */}
         <Route 
           path="/add-employee" 
           element={
@@ -49,6 +56,7 @@ function App() {
           } 
         />
 
+        {/* Edit employee, HR & Manager */}
         <Route 
           path="/edit-employee/:id" 
           element={
@@ -58,6 +66,7 @@ function App() {
           } 
         />
 
+        {/* View employee, Employee, Manager & HR */}
         <Route 
           path="/view-employee/:id" 
           element={
@@ -67,6 +76,7 @@ function App() {
           } 
         />
 
+        {/* Employee summary, HR only */}
         <Route 
           path="/employee-summary" 
           element={
@@ -76,6 +86,7 @@ function App() {
           } 
         />
 
+        {/* Employee status, accessible by HR, Manager, Employee */}
         <Route 
           path="/employee-status" 
           element={
@@ -85,6 +96,7 @@ function App() {
           } 
         />
 
+        {/* Department filter, Employee & Manager */}
         <Route 
           path="/search-department" 
           element={

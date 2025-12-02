@@ -12,18 +12,22 @@ const EmployeeTable = ({ employees, page, setPage, pageSize = 10, totalCount = 0
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
+  // Ensure employees is always an array
   const safeEmployees = Array.isArray(employees) ? employees : [];
+
+  // Calculate total number of pages for pagination
   const totalPages = Math.ceil(totalCount / pageSize);
 
   if (!user) return <p>Loading user info...</p>;
 
+  // Delete an employee
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
       await api.delete(`/Employee/${id}`);
       toast.success("Employee Deleted Successfully");
-      refreshEmployees();
+      refreshEmployees(); // Refresh table after deletion
     } catch (err) {
       console.error("Error deleting employee:", err);
       toast.error("Failed to delete employee.");
@@ -48,6 +52,7 @@ const EmployeeTable = ({ employees, page, setPage, pageSize = 10, totalCount = 0
             <th>Gender</th>
             <th>Marital Status</th>
 
+            {/* Only show Actions column if user is not an Employee */}
             {user.role !== "Employee" && <th>Actions</th>}
           </tr>
         </thead>
@@ -68,14 +73,17 @@ const EmployeeTable = ({ employees, page, setPage, pageSize = 10, totalCount = 0
               <td>{emp.gender}</td>
               <td>{emp.maritalStatus}</td>
 
+              {/* Role-based action buttons */}
               {user.role !== "Employee" && (
                 <td className="action-icons">
                   <div className="icon-wrapper">
+                    {/* View is allowed for all non-Employee roles */}
                     <VisibilityIcon
                       className="icon view"
                       onClick={() => navigate(`/view-employee/${emp.id}`)}
                     />
 
+                    {/* Edit allowed for non-Employee roles */}
                     {user.role !== "Employee" && (
                       <EditIcon
                         className="icon edit"
@@ -83,7 +91,7 @@ const EmployeeTable = ({ employees, page, setPage, pageSize = 10, totalCount = 0
                       />
                     )}
 
-                    {/* Only HR can delete */}
+                    {/* Delete allowed only for HR */}
                     {user.role === "HR" && (
                       <DeleteIcon
                         className="icon delete"
@@ -98,6 +106,7 @@ const EmployeeTable = ({ employees, page, setPage, pageSize = 10, totalCount = 0
         </tbody>
       </table>
 
+      {/* Pagination for non-Employee roles */}
       {user.role !== "Employee" && (
         <Pagination
           count={totalPages}

@@ -10,8 +10,7 @@ body {
   color: #333;
 }
 
-
-/* Navbar styling */
+/*Navbar styling*/
 .navbar {
   /* background: linear-gradient(90deg, #0d47a1, #1976d2); */
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, #0d47a1 15%, #1976d2 100%);
@@ -33,7 +32,6 @@ body {
   align-items: center;
 }
 
-
 .navbar h2 {
   margin-left: 10px !important;  
   margin-right: auto !important; 
@@ -45,7 +43,7 @@ body {
   margin-bottom: 5px;
 }
 
-/* navbar buttons */
+/*navbar buttons*/
 .nav-btn {
   background:#1eb357; 
   color: white;
@@ -62,7 +60,6 @@ body {
   transform: translateY(-2px);
 }
 
-
 .logout {
   background-color: #e63946 !important;
   color: white !important;
@@ -76,11 +73,9 @@ body {
 .logout:hover {
   background-color: #c1121f !important;
   transform: translateY(-2px);
-
 }
 
-
-/* Login container */
+/*Login container*/
 .login-container {
   width: 400px;
   margin: 80px auto;
@@ -107,7 +102,6 @@ body {
   font-size: 14px;
 }
 
-
 .loginForm button {
   width: 100%;
   padding: 12px;
@@ -124,7 +118,7 @@ body {
   background: linear-gradient(90deg, #0b3d91, #1565c0);
 }
 
-/* Error message */
+/*Error message*/
 .login-container p {
   margin-top: 10px;
   font-size: 14px;
@@ -132,7 +126,7 @@ body {
   text-align: center;
 }
 
-/* Dashboard */
+/*Dashboard*/
 .dashboard-container {
   width: 80%;
   text-align: center;
@@ -146,7 +140,7 @@ body {
   margin-top: -10px;
 }
 
-/* Dashboard Action Buttons */
+/*Dashboard Action Buttons*/
 .dashboard-actions {
   margin: 30px auto;
   display: flex;
@@ -177,7 +171,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Search bar */
+/*Search bar*/
 .searchbar {
   margin-bottom: 15px;
 }
@@ -196,7 +190,7 @@ body {
   border-color: #0d47a1;
 }
 
-/* Employee List Table */
+/*Employee List Table*/
 .employee-container {
   width: 100%;
   max-width: 1200px;
@@ -277,14 +271,14 @@ body {
   transition: 0.2s;
 }
 
-/* Pagination center */
+/*Pagination center*/
 .MuiPagination-root {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-/* EmployeeForm Container for Add/Edit/View */
+/*EmployeeForm Container for Add/Edit/View*/
 .employee-form-container {
   align-items: center;
   width: 140%;
@@ -355,7 +349,7 @@ body {
   justify-content: center;
 }
 
-/* Employee Summary Page */
+/*Employee Summary Page*/
 .summary-cards {
   display: flex;
   justify-content: center;
@@ -385,9 +379,11 @@ body {
   margin-bottom: 15px;
   color: black;
 }
+
 .dashboard-sidebar h3{
   color: white;
 }
+
 .dashboard-status {
   width: 400px;
   margin: 50px auto;
@@ -430,7 +426,7 @@ body {
   background: linear-gradient(90deg, #0b3d91, #1565c0);
 }
 
-/* Dashboard - Left Sidebar Layout */
+/*Dashboard - Left Sidebar Layout*/
 .dashboard-container-main {
   display: flex;
   min-height: 100vh;
@@ -438,7 +434,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Sidebar */
+/*Sidebar*/
 .dashboard-sidebar {
   margin-top: 1px;
   width: 300px;
@@ -485,7 +481,7 @@ body {
   line-height: 1.2;
 }
 
-/* Main Content */
+/*Main Content*/
 .dashboard-main {
   flex: 1;
   padding: 40px 30px;
@@ -545,7 +541,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* Minimal Responsive Design */
+/*Responsive Design*/
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -580,10 +576,9 @@ body {
     flex-direction: column;
     align-items: center;
   }
-
-
 }
-/* Tablets */
+
+/*Tablets*/
 @media (max-width: 1024px) {
   .employee-form-container {
     grid-template-columns: repeat(2, 1fr);
@@ -595,7 +590,7 @@ body {
   }
 }
 
-/* Mobile */
+/*Mobile*/
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -629,7 +624,7 @@ body {
   }
 }
 
-/* Small mobile */
+/*Small mobile*/
 @media (max-width: 480px) {
   .login-container {
     width: 90%;
@@ -654,5 +649,3 @@ body {
     border-radius: 6px;
   }
 }
-
-

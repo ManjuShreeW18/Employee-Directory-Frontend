@@ -6,32 +6,31 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  //It Runs once on app start
+  // Runs once on app start
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token) { // Check if token exists
       try {
-        const decoded = jwtDecode(token);
+        const decoded = jwtDecode(token); // Decode JWT
         setUser({ 
             fullname:decoded.fullname,
             department:decoded.department,
             email: decoded.unique_name || decoded.name, 
             role: decoded.role,
             employeeId: decoded.employeeId 
-          
         });
       } catch (error) {
         console.error("Invalid token:", error);
-        localStorage.removeItem('token'); 
+        localStorage.removeItem('token'); // Remove invalid token
       }
     }
   }, []);
 
-  //we Call this on login
+  // Call this on login
   const login = (token) => {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', token); // Save token
     try {
-      const decoded = jwtDecode(token);
+      const decoded = jwtDecode(token); // Decode token
       setUser({ 
         fullname:decoded.fullname,
         department:decoded.department,
@@ -45,8 +44,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
+    localStorage.removeItem('token'); // Remove token on logout
+    setUser(null); // Clear user
   };
 
   return (

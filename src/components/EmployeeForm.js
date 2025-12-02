@@ -2,26 +2,30 @@ import React from "react";
 
 const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = true, showRequiredMark = false }) => {
 
+  // Handle input or select changes and update state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEmployee({ ...employee, [name]: value });
   };
 
+  // Conditionally show required asterisk
   const requiredStar = showRequiredMark ? <span style={{ color: "red" }}>*</span> : null;
 
   return (
     <div className="employee-form-container">
+      {/* Full Name */}
       <div className="form-group">
         <label>Full Name {requiredStar}</label>
         <input
           name="fullName"
           value={employee.fullName || ""}
           onChange={handleChange}
-          disabled={readOnly}
+          disabled={readOnly} // Disable input if read-only mode
           required={showRequiredMark}
         />
       </div>
 
+      {/* Email */}
       <div className="form-group">
         <label>Email {requiredStar}</label>
         <input
@@ -34,6 +38,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Phone */}
       <div className="form-group">
         <label>Phone {requiredStar}</label>
         <input
@@ -45,6 +50,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Password - optional display */}
       {showPassword && (
         <div className="form-group">
           <label>Password {requiredStar}</label>
@@ -59,6 +65,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         </div>
       )}
 
+      {/* Date of Birth */}
       <div className="form-group">
         <label>Date of Birth {requiredStar}</label>
         <input
@@ -71,6 +78,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Date of Joining */}
       <div className="form-group">
         <label>Date of Joining {requiredStar}</label>
         <input
@@ -83,6 +91,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Location */}
       <div className="form-group">
         <label>Location {requiredStar}</label>
         <input
@@ -94,6 +103,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Designation */}
       <div className="form-group">
         <label>Designation {requiredStar}</label>
         <input
@@ -105,6 +115,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Role selection */}
       <div className="form-group">
         <label>Role {requiredStar}</label>
         <select
@@ -121,6 +132,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         </select>
       </div>
 
+      {/* Status selection */}
       <div className="form-group">
         <label>Status {requiredStar}</label>
         <select
@@ -137,6 +149,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         </select>
       </div>
 
+      {/* Gender selection */}
       <div className="form-group">
         <label>Gender {requiredStar}</label>
         <select
@@ -153,6 +166,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         </select>
       </div>
 
+      {/* Current Address */}
       <div className="form-group">
         <label>Current Address {requiredStar}</label>
         <input
@@ -164,6 +178,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Nationality */}
       <div className="form-group">
         <label>Nationality {requiredStar}</label>
         <input
@@ -175,6 +190,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
+      {/* Marital Status selection */}
       <div className="form-group">
         <label>Marital Status {requiredStar}</label>
         <select
@@ -191,6 +207,7 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         </select>
       </div>
 
+      {/* Department selection */}
       <div className="form-group">
         <label>Department {requiredStar}</label>
         <select

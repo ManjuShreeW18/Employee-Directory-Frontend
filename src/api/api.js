@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 
+//backend url
 const api=axios.create({
     baseURL:"https://localhost:7101/api",
 });

@@ -4,14 +4,15 @@ import api from '../api/api';
 import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login } = useContext(AuthContext); // Access login function from context
     const navigate = useNavigate();
 
+    // State for input fields and error message
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    //  Redirect to dashboard if token exists
+    // Redirect to dashboard if token exists
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -19,6 +20,7 @@ const Login = () => {
         }
     }, [navigate]);
 
+    // Handle login form submission
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -28,13 +30,13 @@ const Login = () => {
                 Password: password
             });
 
-            login(response.data.token);
+            login(response.data.token); // Save token and update user context
 
-            // Prevent going back to login
+            // Redirect to dashboard
             navigate('/dashboard', { replace: true });
 
         } catch (err) {
-            setError(err.response?.data || "Login failed");
+            setError(err.response?.data || "Login failed"); // Show error message
         }
     };
 
@@ -61,6 +63,7 @@ const Login = () => {
                 <button type='submit'>Login</button>
             </form>
 
+            {/* Display error if login fails */}
             {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     );

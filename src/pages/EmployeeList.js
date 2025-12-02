@@ -7,15 +7,16 @@ import api from "../api/api";
 import { AuthContext } from "../context/AuthContext";
 
 const EmployeeList = () => {
-  const { user } = useContext(AuthContext);
-  const { id } = useParams(); // for single employee view
-  const [allEmployees, setAllEmployees] = useState([]);
-  const [employees, setEmployees] = useState([]);
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
-  const pageSize = 10;
+  const { user } = useContext(AuthContext); // Logged-in user info
+  const { id } = useParams(); // Optional: fetch single employee by ID
+  const [allEmployees, setAllEmployees] = useState([]); // Full data set
+  const [employees, setEmployees] = useState([]); // Current page data
+  const [search, setSearch] = useState(""); // Search term
+  const [page, setPage] = useState(1); // Current page number
+  const [totalCount, setTotalCount] = useState(0); // Total number of employees
+  const pageSize = 10; // Employees per page
 
+  // Fetch employees based on role or ID
   const fetchEmployees = async () => {
     try {
       if (user.role === "Employee") {
@@ -23,24 +24,22 @@ const EmployeeList = () => {
         const res = await api.get(`/Employee/${user.employeeId}`);
         setAllEmployees([res.data]);
         setTotalCount(1);
-      }
-      else if (id) {
+      } else if (id) {
         const res = await api.get(`/Employee/${id}`);
         setAllEmployees([res.data]);
         setTotalCount(1);
-      }
-      else {
+      } else {
         const res = await api.get(`/Employee?pageNumber=1&pageSize=1000`);
         setAllEmployees(res.data.employees || res.data);
         setTotalCount(res.data.totalCount || res.data.length);
       }
     } catch (err) {
       console.error("Error fetching employees:", err);
-      toast.error("Failed to fetch employees.");
+      toast.error("Failed to fetch employees."); // Show error toast
     }
   };
 
-  //searching
+  // Filter and paginate employees when search or page changes
   useEffect(() => {
     let filtered = allEmployees;
 
@@ -56,7 +55,7 @@ const EmployeeList = () => {
     setTotalCount(filtered.length);
   }, [search, page, allEmployees]);
 
-  // fetch employees initially and when user or id changes
+  // Fetch employees initially and when user or id changes
   useEffect(() => {
     if (!user || !user.role) return;
     fetchEmployees();
@@ -66,8 +65,10 @@ const EmployeeList = () => {
     <div className="employee-container">
       <h2>Employee List</h2>
 
+      {/* Search input */}
       <SearchBar search={search} setSearch={setSearch} />
 
+      {/* Table with pagination */}
       <EmployeeTable
         employees={employees}
         page={page}
@@ -77,6 +78,7 @@ const EmployeeList = () => {
         refreshEmployees={fetchEmployees}
       />
 
+      {/* Toast notifications */}
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
