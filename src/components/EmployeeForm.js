@@ -8,27 +8,28 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
     setEmployee({ ...employee, [name]: value });
   };
 
-  // Conditionally show required asterisk
   const requiredStar = showRequiredMark ? <span style={{ color: "red" }}>*</span> : null;
 
   return (
     <div className="employee-form-container">
       {/* Full Name */}
       <div className="form-group">
-        <label>Full Name {requiredStar}</label>
+        <label htmlFor="fullName">Full Name {requiredStar}</label>
         <input
+          id="fullName"
           name="fullName"
           value={employee.fullName || ""}
           onChange={handleChange}
-          disabled={readOnly} // Disable input if read-only mode
+          disabled={readOnly} 
           required={showRequiredMark}
         />
       </div>
 
       {/* Email */}
       <div className="form-group">
-        <label>Email {requiredStar}</label>
+        <label htmlFor="email">Email {requiredStar}</label>
         <input
+          id="email"
           type="email"
           name="email"
           value={employee.email || ""}
@@ -40,8 +41,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Phone */}
       <div className="form-group">
-        <label>Phone {requiredStar}</label>
+        <label htmlFor="phone">Phone {requiredStar}</label>
         <input
+          id="phone"
           name="phone"
           value={employee.phone || ""}
           onChange={handleChange}
@@ -50,11 +52,12 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
         />
       </div>
 
-      {/* Password - optional display */}
+      {/* Password */}
       {showPassword && (
         <div className="form-group">
-          <label>Password {requiredStar}</label>
+          <label htmlFor="password">Password {requiredStar}</label>
           <input
+            id="password"
             type='password'
             name="password"
             value={employee.password || ""}
@@ -67,8 +70,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Date of Birth */}
       <div className="form-group">
-        <label>Date of Birth {requiredStar}</label>
+        <label htmlFor="dateOfBirth">Date of Birth {requiredStar}</label>
         <input
+          id="dateOfBirth"
           type="date"
           name="dateOfBirth"
           value={employee.dateOfBirth || ""}
@@ -80,8 +84,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Date of Joining */}
       <div className="form-group">
-        <label>Date of Joining {requiredStar}</label>
+        <label htmlFor="dateOfJoining">Date of Joining {requiredStar}</label>
         <input
+          id="dateOfJoining"
           type="date"
           name="dateOfJoining"
           value={employee.dateOfJoining || ""}
@@ -93,8 +98,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Location */}
       <div className="form-group">
-        <label>Location {requiredStar}</label>
+        <label htmlFor="location">Location {requiredStar}</label>
         <input
+          id="location"
           name="location"
           value={employee.location || ""}
           onChange={handleChange}
@@ -105,8 +111,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Designation */}
       <div className="form-group">
-        <label>Designation {requiredStar}</label>
+        <label htmlFor="designation">Designation {requiredStar}</label>
         <input
+          id="designation"
           name="designation"
           value={employee.designation || ""}
           onChange={handleChange}
@@ -117,8 +124,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Role selection */}
       <div className="form-group">
-        <label>Role {requiredStar}</label>
+        <label htmlFor="role">Role {requiredStar}</label>
         <select
+          id="role"
           name="role"
           value={employee.role || ""}
           onChange={handleChange}
@@ -134,8 +142,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Status selection */}
       <div className="form-group">
-        <label>Status {requiredStar}</label>
+        <label htmlFor="status">Status {requiredStar}</label>
         <select
+          id="status"
           name="status"
           value={employee.status || ""}
           onChange={handleChange}
@@ -151,8 +160,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Gender selection */}
       <div className="form-group">
-        <label>Gender {requiredStar}</label>
+        <label htmlFor="gender">Gender {requiredStar}</label>
         <select
+          id="gender"
           name="gender"
           value={employee.gender || ""}
           onChange={handleChange}
@@ -168,8 +178,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Current Address */}
       <div className="form-group">
-        <label>Current Address {requiredStar}</label>
+        <label htmlFor="currentAddress">Current Address {requiredStar}</label>
         <input
+          id="currentAddress"
           name="currentAddress"
           value={employee.currentAddress || ""}
           onChange={handleChange}
@@ -180,8 +191,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Nationality */}
       <div className="form-group">
-        <label>Nationality {requiredStar}</label>
+        <label htmlFor="nationality">Nationality {requiredStar}</label>
         <input
+          id="nationality"
           name="nationality"
           value={employee.nationality || ""}
           onChange={handleChange}
@@ -192,8 +204,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Marital Status selection */}
       <div className="form-group">
-        <label>Marital Status {requiredStar}</label>
+        <label htmlFor="maritalStatus">Marital Status {requiredStar}</label>
         <select
+          id="maritalStatus"
           name="maritalStatus"
           value={employee.maritalStatus || ""}
           onChange={handleChange}
@@ -209,8 +222,9 @@ const EmployeeForm = ({ employee, setEmployee, readOnly = false, showPassword = 
 
       {/* Department selection */}
       <div className="form-group">
-        <label>Department {requiredStar}</label>
+        <label htmlFor="department">Department {requiredStar}</label>
         <select
+          id="department"
           name="department"
           value={employee.department || ""}
           onChange={handleChange}
